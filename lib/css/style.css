@@ -302,7 +302,7 @@ a{
 #highRoller_log{
     width: 310px;
     height: 310px;
-	background: url(img/highroller_bg.jpg) no-repeat;
+	background: url(img/highroller_bg.png) no-repeat;
     position: absolute;
     top: 135px;
     left: calc(50% - 500px);

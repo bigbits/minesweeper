@@ -10,7 +10,7 @@ html, body{
     min-width: 1000px;
     padding: 0;
     margin: 0;
-    background: #111;
+    background: url(img/bg.jpg) no-repeat;
     overflow-x: hidden;
     color: white;
 }
@@ -302,6 +302,7 @@ a{
 #highRoller_log{
     width: 310px;
     height: 310px;
+	background: url(img/highrollerbg.jpg) no-repeat;
     position: absolute;
     top: 135px;
     left: calc(50% - 500px);

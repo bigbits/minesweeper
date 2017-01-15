@@ -121,7 +121,7 @@
                     </div>
                 </div>
               <ul id="board">
-                  <div class="ui icon buttons" id="betControllButtons">
+                  <!--<div class="ui icon buttons" id="betControllButtons">
                         <button class="ui button" onclick="$('#bet').val(Math.floor($('#bet').val()*2)); setBet($('#bet').val());">x2</button>
                         <button class="ui button" onclick="$('#bet').val(Math.round($('#bet').val()/2)); setBet($('#bet').val());">½</button>
                         <button class="ui button" onclick="$('#bet').val((user_balance>=1?1:0)); setBet($('#bet').val());">MIN</button>
@@ -132,20 +132,20 @@
                         <input class="bet" id="bet" type="number" pattern="[0-9]*" value="2" onkeyup="setBet($(this).val());" onchange="setBet($(this).val());">
                         <div class="ui basic label">Bits</div>
                     </div>
-                  <!--  <div class="ui icon buttons" id="bombsButtons">
+                  <div class="ui icon buttons" id="bombsButtons">
                         <button class="ui button" onclick="setBombs(1);"><i class="bomb icon"></i> 1</button>
                         <button class="ui button" onclick="setBombs(3);"><i class="bomb icon"></i> 3</button>
                         <button class="ui button" onclick="setBombs(5);"><i class="bomb icon"></i> 5</button>
                         <button class="ui button" onclick="setBombs(24);"><i class="bomb icon"></i> 24</button>
                         <button class="ui button customBombsButton">Custom</button>
-                    </div> -->
+                    </div>
                     <div class="ui right labeled input" id="customBombsInputArea" style="width: 100%; margin-top: 10px;">
                         <div class="ui label"></div>
                         <input class="customBombs" id="customBombs" type="number" pattern="[0-9]*" value="10" onkeyup="setBombs($(this).val());" onchange="setBombs($(this).val());" style="text-align: right;">
                         <div class="ui basic label">Bombs</div>
                     </div>
                     <button id="startNewGameButton">Start new game</button>
-                    <div id="macroInfo">Or<br>Press <b>Space Bar</b> key to start/end games.</div>
+                    <div id="macroInfo">Or<br>Press <b>Space Bar</b> key to start/end games.</div> -->
                 </ul>
             </div>
             <div id="game_log">
@@ -179,7 +179,7 @@
             <table class="ui unstackable table">
                 <thead>
                     <tr>
-                        <th colspan="3">All bets Pisstory<small> - <a class="viewMyBetsButton">My bets</a><!-- - <a class="viewJackpotWinnersButton">Jackpot winners</a>--></small></th>
+                        <th colspan="3">All bets History<small> - <a class="viewMyBetsButton">My bets</a><!-- - <a class="viewJackpotWinnersButton">Jackpot winners</a>--></small></th>
                     </tr>
                 </thead>
                 <tbody id="game_allbets_logs">
@@ -199,7 +199,7 @@
             </table>
         </div>
 
-        <!--<div id="game_jackpotwinners_log">
+       <div id="game_jackpotwinners_log">
             <table class="ui unstackable table">
                 <thead>
                     <tr>
@@ -209,7 +209,7 @@
                 <tbody id="game_jackpotwinners_logs">
                 </tbody>
             </table>
-        </div>-->
+        </div>
 
         <script type="text/javascript" src="lib/js/script.min.js"></script>
         <script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit' async defer></script>

@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-        <title>bigbits | The bitcoin minesweeper casino!</title>
-        <meta name="description" content="bigbits is a bitcoin casino designed as a minesweeper game! Place your bets, and click the tiles avoiding hitting the hidden bombs." />
+        <title>Sweepabit - Beta | The bitcoin minesweeper casino!</title>
 
-        <!-- Credits: http://sweepabit.com/LICENSE --><link rel="canonical" href="https://bigbits.github.io/minesweeper/" /><!-- End credits -->
+        <meta name="description" content="Sweepabit is a bitcoin casino designed as a minesweeper game! Place your bets, and click the tiles avoiding hitting the hidden bombs. Faucet: 2 free bits every 5 minutes." />
 
-        <meta name="google-site-verification" content="6Le9EioTAAAAAEXkvPV_em4lcIaBwTT2nRiyAKAf" />
+
+        <meta name="google-site-verification" content="edZvMpajK8pxhEE5ih_Po4uVbZIiJdAZ2dwhYaJSyMo" />
 
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css" />
         <link rel="stylesheet" type="text/css" href="lib/css/style.css" />
@@ -19,11 +19,11 @@
         <script type="text/javascript" src="lib/js/jquery.cookie.js"></script>
         <script type="text/javascript" src="lib/js/jquery.session.js"></script>
         <script type="text/javascript" src="lib/js/strip-combining-marks.js"></script>
-     </head>
+    </head>
     
     <body>
         <div id="faucetClaimCaptcha"></div>
- 
+
         <div class="ui basic modal" id="safeLinkForm">
             <div class="header">
                 WARNING!
@@ -50,7 +50,7 @@
             <div class="image content">
                 <div class="description">
                     <p>You can deposit to this address: <span id="depositBtcAddy" style="color:#2ECC40;font-weight:bold;font-size:18px;">null</span><br>Your balance will be automatically updated once your deposit is confirmed.</p>
-                    <p><div class="ui green basic inverted button" id="moneypotDepositButton">Deposit From Your Moneypot Wallet</div></p>
+                    <p><div class="ui green basic inverted button" id="moneypotDepositButton">Or, deposit from moneypot</div></p>
                 </div>
             </div>
         </div>
@@ -82,30 +82,24 @@
 
         <div id="game_container">
             <div style="width:320px; position: absolute; top: 320px; left: 320px;">
-                <a href="https://www.moneypot.com/apps/1441-bigbits-pre-alpha-v01" target="_blank" rel="external nofollow">Moneypot</a> 
+                <a href="https://www.moneypot.com/apps/1441-bigbits-pre-alpha-v01" target="_blank" rel="external nofollow">Moneypot</a> | 
+                <a href="https://bitcointalk.org/index.php?topic=1395232" target="_blank" rel="external nofollow">BitcoinTalk</a> <!--| 
+                <a href="https://bitcointalk.org/index.php?topic=1544070.msg15520631#msg15520631" target="_blank" rel="external nofollow">Jackpot</a>-->
+                <a class="settingsButon" style="float:right;" onclick="showSettings();"><i class="settings icon"></i></a>
             </div>
-			
-			<div style="width:320px; position: absolute; top: 320px; left: 395px;">
-                <a href="http://pastebin.com/raw/sC0fERah" target="_blank" rel="external nofollow">Free Script</a> 
-            </div>
-		
-		<div style="width:320px; position: absolute; top: 320px; left: 470px;">
-                <a href="http://pastebin.com/raw/4prpBpM7" target="_blank" rel="external nofollow">Owner's Script</a> 
-            </div>
-            
-			<div id="chat">
+            <div id="chat">
                 <div id="chatMonitor"></div>
                 
                 <button id="connectButton" onclick="window.location.href='https://www.moneypot.com/oauth/authorize?app_id=1441&response_type=token&state=Meh&redirect_uri=https://bigbits.github.io/minesweeper/'">Connect</button>
                 
                 <span id="connectedUsersText">
-                    <span id="connectedUsersAmount">0</span> users on bigbits<br><br>
+                    <span id="connectedUsersAmount">0</span> users on Sweepabit<br><br>
                     <button id="depositButton">Deposit</button>
                     <button id="withdrawButton">Withdraw</button>
                 </span>
                 <span id="connectionText">
                     Logged in as <span id="username"></span>. <a id="logoutButton">Log out</a><br>Balance: <span id="balance"></span> Bits <a id="balanceRefreshButton"><i class="refresh icon" id="balanceRefreshIcon"></i></a><br>
-                    <button id="faucetButton">FAUCET</button>
+                    <!--<button id="faucetButton">FAUCET</button>-->
                     <button id="tipButton">TIP</button>
                 </span>
             </div>
@@ -120,19 +114,19 @@
                         </div>
                     </div>
                 </div>
-              <ul id="board">
-                  <div class="ui icon buttons" id="betControllButtons">
+                <ul id="board">
+                    <div class="ui icon buttons" id="betControllButtons">
                         <button class="ui button" onclick="$('#bet').val(Math.floor($('#bet').val()*2)); setBet($('#bet').val());">x2</button>
                         <button class="ui button" onclick="$('#bet').val(Math.round($('#bet').val()/2)); setBet($('#bet').val());">½</button>
                         <button class="ui button" onclick="$('#bet').val((user_balance>=1?1:0)); setBet($('#bet').val());">MIN</button>
                         <button class="ui button" onclick="$('#bet').val(Math.floor(user_balance)); setBet($('#bet').val());">MAX</button>
-                    </div> 
+                    </div>
                     <div class="ui right labeled input" id="betInputArea">
                         <div class="ui label">Bet</div>
                         <input class="bet" id="bet" type="number" pattern="[0-9]*" value="2" onkeyup="setBet($(this).val());" onchange="setBet($(this).val());">
                         <div class="ui basic label">Bits</div>
                     </div>
-                  <div class="ui icon buttons" id="bombsButtons">
+                    <div class="ui icon buttons" id="bombsButtons">
                         <button class="ui button" onclick="setBombs(1);"><i class="bomb icon"></i> 1</button>
                         <button class="ui button" onclick="setBombs(3);"><i class="bomb icon"></i> 3</button>
                         <button class="ui button" onclick="setBombs(5);"><i class="bomb icon"></i> 5</button>
@@ -199,7 +193,7 @@
             </table>
         </div>
 
-       <div id="game_jackpotwinners_log">
+        <!--<div id="game_jackpotwinners_log">
             <table class="ui unstackable table">
                 <thead>
                     <tr>
@@ -209,9 +203,9 @@
                 <tbody id="game_jackpotwinners_logs">
                 </tbody>
             </table>
-        </div>
+        </div>-->
 
-        <script type="text/javascript" src="lib/js/script.min.js"></script>
+        <script type="text/javascript" src="lib/js/script.2_08.min.js"></script>
         <script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit' async defer></script>
     </body>
 </html>
